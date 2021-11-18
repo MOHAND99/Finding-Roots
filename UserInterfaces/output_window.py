@@ -6,7 +6,7 @@ from PyQt5.uic import loadUi
 class OutputWindow(QtWidgets.QDialog):
     def __init__(self) -> None:
         super(OutputWindow, self).__init__()
-        loadUi(r"/media/zayton/5452288452286CC4/desktop/eng/7th Term/NA/PJ/Finding-Roots/UserInterfaces/output.ui", self)
+        loadUi(r"UserInterfaces/output.ui", self)
         self.iteration_value = self.findChild(QtWidgets.QLabel,"iteration_value")
         self.table = self.findChild(QtWidgets.QTableView, "tabel_iteration")
         self.exec_time = self.findChild(QtWidgets.QLabel, "time_value")
@@ -15,6 +15,7 @@ class OutputWindow(QtWidgets.QDialog):
 
     
     def set_iteration_value(self, v):
+        
         self.iteration_value.setText(v)
 
 
