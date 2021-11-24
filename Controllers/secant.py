@@ -1,6 +1,5 @@
 from sympy import parse_expr, symbols
-import sys
-from PyQt5 import QtWidgets
+
 
 def secant_eq(equ, x_prev, x_curr, iter, prec):
     x = symbols("x")    

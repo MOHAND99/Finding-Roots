@@ -1,7 +1,6 @@
 import sys
 from PyQt5 import QtWidgets
 from PyQt5.uic import loadUi
-from ...FindingRoots.Controllers.secant import secant_eq
 
 
 class OutputWindow(QtWidgets.QDialog):
