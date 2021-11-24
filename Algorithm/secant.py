@@ -1,7 +1,7 @@
 from sympy import parse_expr, symbols
 
 
-def secant_eq(equ, x_prev, x_curr, iter, prec):
+def secant_eq(equ, x_prev, x_curr, iter=50, prec=0.00005):
     x = symbols("x")    
     it_dic = {}
     fn = parse_expr(equ)
@@ -24,10 +24,7 @@ def secant_eq(equ, x_prev, x_curr, iter, prec):
     return[it_dic, x_next, equ, iter, prec, num_of_iter,'secant']
 
 
-fn_eq = "x**2+x-6"
-res = secant_eq(equ=fn_eq, x_prev=1, x_curr=1.1, iter=50, prec=0.003)
-# print(res[0])
-print(res[1])
+
 
 # app = QtWidgets.QApplication(sys.argv)
 # output_window = OutputWindow()
