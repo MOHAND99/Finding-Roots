@@ -1,6 +1,7 @@
 import sys
 from PyQt5 import QtWidgets
 from PyQt5.uic import loadUi
+from ...FindingRoots.Controllers.secant import secant_eq
 
 
 class OutputWindow(QtWidgets.QDialog):
@@ -13,23 +14,14 @@ class OutputWindow(QtWidgets.QDialog):
         self.app_root = self.findChild(QtWidgets.QLabel, "root_value")
         self.precision = self.findChild(QtWidgets.QLabel, "precision_value")
 
-    
+
     def set_iteration_value(self, v):
         
         self.iteration_value.setText(v)
 
-
-
-app = QtWidgets.QApplication(sys.argv)
-OutputWindow = OutputWindow()
-OutputWindow.set_iteration_value("22")
-widget = QtWidgets.QStackedWidget()
-widget.addWidget(OutputWindow)
-widget.resize(700,700)
-widget.show()
-sys.exit(app.exec_())
-
-
+fn_eq = "x**2+x-6"
+res = secant_eq(equ=fn_eq, x_prev=1, x_curr=1.1, iter=50, prec=0.003)
+print(res[1])
 
 
 
