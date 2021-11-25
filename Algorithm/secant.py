@@ -11,12 +11,12 @@ def secant_eq(equ, x_prev, x_curr, iter=50, prec=0.00005):
         num_of_iter += 1
         f_x_curr = fn.subs(x, x_curr)
         f_x_prev = fn.subs(x, x_prev)
-        x_next = x_curr - ((f_x_curr * (x_prev - x_curr))/(f_x_prev - f_x_curr))
+        x_next = round(x_curr - ((f_x_curr * (x_prev - x_curr))/(f_x_prev - f_x_curr)),6)
         calc_prec = abs((x_next-x_curr)/x_next) * 100
         if calc_prec < prec:
             it_dic[i] = [x_next, x_curr, x_prev, calc_prec]
             break
-        it_dic[i] = [x_next, x_curr, x_prev, calc_prec]
+        it_dic[i] = [x_prev, x_next, x_curr, calc_prec]
         x_prev = x_curr
         x_curr = x_next
 

@@ -21,7 +21,7 @@
     <rect>
      <x>20</x>
      <y>10</y>
-     <width>141</width>
+     <width>200</width>
      <height>31</height>
     </rect>
    </property>
@@ -86,7 +86,7 @@
     <rect>
      <x>270</x>
      <y>90</y>
-     <width>55</width>
+     <width>200</width>
      <height>16</height>
     </rect>
    </property>
@@ -99,7 +99,7 @@
     <rect>
      <x>20</x>
      <y>120</y>
-     <width>141</width>
+     <width>200</width>
      <height>21</height>
     </rect>
    </property>
@@ -112,7 +112,7 @@
     <rect>
      <x>270</x>
      <y>120</y>
-     <width>55</width>
+     <width>200</width>
      <height>16</height>
     </rect>
    </property>
@@ -120,13 +120,13 @@
     <string>0.00005</string>
    </property>
   </widget>
-  <widget class="QTableView" name="tabel_iteration">
+  <widget class="QTableWidget" name="tabel_iteration">
    <property name="geometry">
     <rect>
-     <x>20</x>
+     <x>50</x>
      <y>170</y>
-     <width>631</width>
-     <height>371</height>
+     <width>500</width>
+     <height>500</height>
     </rect>
    </property>
   </widget>
