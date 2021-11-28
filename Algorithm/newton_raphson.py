@@ -13,7 +13,7 @@ def newton_eq(equ, x_curr, iter=50, prec=0.00005):
     for i in range(iter):
         num_of_iter += 1
         f_x_curr = fn.subs(x, x_curr)
-        f_x_derv = fn_d.sib(x, x_curr)
+        f_x_derv = fn_d.subs(x, x_curr)
         x_next = round(x_curr - (f_x_curr / f_x_derv), 6)
         calc_prec = abs((x_next-x_curr)/x_next) * 100
         if calc_prec < prec:
