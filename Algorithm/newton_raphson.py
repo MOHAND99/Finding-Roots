@@ -1,7 +1,7 @@
 from sympy import parse_expr, symbols, diff
 
 
-def secant_eq(equ, x_curr, iter=50, prec=0.00005):
+def newton_eq(equ, x_curr, iter=50, prec=0.00005):
     x = symbols("x")    
     it_dic = {}
     fn = parse_expr(equ)
