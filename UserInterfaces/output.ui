@@ -120,7 +120,7 @@
     <string>0.00005</string>
    </property>
   </widget>
-  <widget class="QTableView" name="tabel_iteration">
+  <widget class="QTableWidget" name="tabel_iteration">
    <property name="geometry">
     <rect>
      <x>20</x>
