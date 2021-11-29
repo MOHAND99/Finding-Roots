@@ -13,6 +13,8 @@ class Calculator(QMainWindow):
 
         self.space.clicked.connect(lambda: self.__add_to_output(" "))
 
+        self.X_.clicked.connect(lambda: self.__add_to_output("X"))
+
         self.cosine.clicked.connect(lambda: self.__add_to_output("cos("))
         self.sine.clicked.connect(lambda: self.__add_to_output("sin("))
         self.exp.clicked.connect(lambda: self.__add_to_output("exp("))
@@ -21,6 +23,7 @@ class Calculator(QMainWindow):
         self.division.clicked.connect(lambda: self.__add_to_output("/"))
         self.plus.clicked.connect(lambda: self.__add_to_output("+"))
         self.minus.clicked.connect(lambda: self.__add_to_output("-"))
+        self.power.clicked.connect(lambda: self.__add_to_output("^"))
 
         self.l_bracket.clicked.connect(lambda: self.__add_to_output("("))
         self.r_bracket.clicked.connect(lambda: self.__add_to_output(")"))
