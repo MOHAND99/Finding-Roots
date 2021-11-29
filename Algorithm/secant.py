@@ -2,6 +2,7 @@ from sympy import parse_expr, symbols
 
 
 def secant_eq(equ, x_prev, x_curr, iter=50, prec=0.00001):
+
     x = symbols("x")
     iters_data = {}
     fn = parse_expr(equ)
