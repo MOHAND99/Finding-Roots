@@ -6,7 +6,7 @@ def newton_eq(equ, x_curr, MAX_ITERS=50, prec=0.00001):
     iters_data = {}
     fn = parse_expr(equ)
     fn_derv = diff(fn, x)
-    num_of_iter = 0
+    num_of_iter = MAX_ITERS
     x_next = 0
     
     if fn_derv == 0:
