@@ -9,6 +9,9 @@ class Calculator(QMainWindow):
         loadUi('calculator.ui', self)
 
         self.cosine.clicked.connect(self.__add_to_output("cos("))
+        self.sine.clicked.connect(self.__add_to_output("sin("))
+        self.exp.clicked.connect(self.__add_to_output("exp("))
+        
         self.show()
 
     def __add_to_output(self, text):
