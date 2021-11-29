@@ -1,22 +1,24 @@
 from sympy import parse_expr, symbols
 
-
-def secant_eq(equ, x_curr, iter=50, prec=0.00001):
+def fixed_pt(equ, x_curr, MAX_ITERS=50, prec=0.00001):
     x = symbols("x")    
-    it_dic = {}
+    iters_data = {}
     fn = parse_expr(equ)
-    num_of_iter = 0
+    num_of_iter = MAX_ITERS
     x_next = 0
-    for i in range(iter):
+
+        
+    calc_prec = 0   
+    for i in range(MAX_ITERS):
         f_x_curr = fn.subs(x, x_curr)
-        x_next = round(f_x_curr,6)
+        round_digit = 6
+        x_next = f_x_curr
         calc_prec = abs((x_next-x_curr)/x_next) * 100
+        iters_data[i] = [round(x_curr, round_digit), round(x_next, round_digit), calc_prec]
         if calc_prec < prec:
-            num_of_iter = i
-            it_dic[i] = [x_curr, x_next, calc_prec]
+            num_of_iter = i + 1
             break
-        it_dic[i] = [x_curr, x_next, calc_prec]
         x_curr = x_next
 
 
-    return[it_dic, x_next, equ, iter, prec, num_of_iter,'fixed_pt']
+    return [iters_data, x_next, equ, MAX_ITERS, prec, num_of_iter,'fixed_pt']
