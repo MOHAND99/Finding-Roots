@@ -1,6 +1,6 @@
 from PyQt5.uic import loadUi
-from PyQt5.QtWidgets import QMainWindow
-# import sys
+from PyQt5.QtWidgets import QMainWindow, QApplication
+import sys
 
 
 class Calculator(QMainWindow):
@@ -48,6 +48,7 @@ class Calculator(QMainWindow):
         self.outputlabel.setText("")
 
 
-# app = QApplication(sys.argv)   # Create an instance of QtWidgets.QApplication
-# window = Calculator()   # Create an instance of our class
-# app.exec_()
+if __name__ == "__main__":
+    app = QApplication(sys.argv)
+    window = Calculator()   # Create an instance of our class
+    app.exec_()
