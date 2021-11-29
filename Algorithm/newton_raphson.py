@@ -10,7 +10,7 @@ def newton_eq(equ, x_curr, MAX_ITERS=50, prec=0.00001):
     x_next = 0
     
     if fn_derv == 0:
-        return "Error"
+        return "Error First Derv. Is Zero"
         
     calc_prec = 0   
     for i in range(iter):
