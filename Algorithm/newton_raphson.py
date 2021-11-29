@@ -5,17 +5,17 @@ def newton_eq(equ, x_curr, MAX_ITERS=50, prec=0.00001):
     x = symbols("x")    
     iters_data = {}
     fn = parse_expr(equ)
-    fn_d = diff(fn, x)
+    fn_derv = diff(fn, x)
     num_of_iter = 0
     x_next = 0
     
-    if fn_d == 0:
+    if fn_derv == 0:
         return "Error"
         
     calc_prec = 0   
     for i in range(iter):
         f_x_curr = fn.subs(x, x_curr)
-        f_x_derv = fn_d.subs(x, x_curr)
+        f_x_derv = fn_derv.subs(x, x_curr)
         round_digit = 6
         x_next = x_curr - (f_x_curr / f_x_derv)
         calc_prec = abs((x_next-x_curr)/x_next) * 100
