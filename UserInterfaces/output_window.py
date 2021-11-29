@@ -12,37 +12,34 @@ class OutputWindow(QtWidgets.QDialog):
         self.root_val = self.findChild(QtWidgets.QLabel, "root_value")
         self.precision = self.findChild(QtWidgets.QLabel, "precision_value")
 
-    def set_table_vals(self, di, type):
+    def set_table_vals(self, data, type):
+        col_count = len(data[0])
+        row_count = len(data) - 1
+        self.table.setRowCount(row_count)
+        self.table.setColumnCount(col_count)
+        self.table.setHorizontalHeaderLabels(data[0])
         if type == "secant":       
-            l_dict = len(di)  
-            self.table.setRowCount(l_dict)
-            self.table.setColumnCount(4)
-            self.table.setHorizontalHeaderLabels(["Xi-1", "Xi", "Xi+1","Precision"])
-            r = 0
-            c = 0
-            for k,v in di.items():
-                self.table.setItem(r,c,QtWidgets.QTableWidgetItem(str(v[0])))
-                self.table.setItem(r,c+1,QtWidgets.QTableWidgetItem(str(v[1])))
-                self.table.setItem(r,c+2,QtWidgets.QTableWidgetItem(str(v[2])))
-                self.table.setItem(r,c+3,QtWidgets.QTableWidgetItem(str(v[3])))
-                r += 1
+            col_ind = 0
+            for i in range(row_count+1):
+                self.table.setItem(i,col_ind,QtWidgets.QTableWidgetItem(str(data[i+1][0])))
+                self.table.setItem(i,col_ind+1,QtWidgets.QTableWidgetItem(str(data[i+1][1])))
+                self.table.setItem(i,col_ind+2,QtWidgets.QTableWidgetItem(str(data[i+1][2])))
+                self.table.setItem(i,col_ind+3,QtWidgets.QTableWidgetItem(str(data[i+1][3])))
+            
             self.table.resizeColumnsToContents()
-        elif type == "":
+        elif type == "falseposition":
             pass
-        elif type == "":
+        elif type == "newton":
             pass
-        elif type == "":
+        elif type == "fixed_pt":
             pass
-        elif type == "":
+        elif type == "biesection":
+            pass 
+        elif type == "mr_first":
             pass
-        elif type == "":
+        else:
             pass
-        elif type == "":
-            pass
-        elif type == "":
-            pass
-        elif type == "":
-            pass
+       
 
     def set_iteration_value(self, v):      
         self.iteration_value.setText(v)
