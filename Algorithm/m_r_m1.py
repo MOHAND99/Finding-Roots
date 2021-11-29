@@ -1,22 +1,29 @@
-from sympy import parse_expr, symbols
+from sympy import parse_expr, symbols, diff
 
 
-def secant_eq(equ, x_curr, m, iter=50, prec=0.00001):
+def multiple_root_mod_one(equ, x_curr, m, MAX_ITERS=50, prec=0.00001):
     x = symbols("x")    
-    it_dic = {}
+    iters_data = {}
     fn = parse_expr(equ)
-    num_of_iter = 0
+    fn_derv = diff(fn, x)
+    num_of_iter = MAX_ITERS
     x_next = 0
-    for i in range(iter):
+
+    if fn_derv == 0:
+        return "Error First Derv. Is Zero"
+
+    calc_prec = 0   
+    for i in range(MAX_ITERS):
         f_x_curr = fn.subs(x, x_curr)
-        x_next = round(f_x_curr,6)
+        f_x_derv = fn_derv.subs(x, x_curr)
+        round_digit = 6
+        x_next = x_curr - (m * (f_x_curr / f_x_derv))
         calc_prec = abs((x_next-x_curr)/x_next) * 100
+        iters_data[i] = [round(x_curr, round_digit), round(x_next, round_digit),calc_prec]
         if calc_prec < prec:
-            num_of_iter = i
-            it_dic[i] = [x_curr, x_next, calc_prec]
+            num_of_iter = i + 1
             break
-        it_dic[i] = [x_curr, x_next, calc_prec]
         x_curr = x_next
 
 
-    return[it_dic, x_next, equ, iter, prec, num_of_iter,'fixed_pt']
+    return [iters_data, x_next, equ, MAX_ITERS, prec, num_of_iter,'mr_first']
