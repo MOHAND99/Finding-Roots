@@ -3,9 +3,9 @@ from sympy import parse_expr, symbols
 
 def secant_eq(equ, x_prev, x_curr, iter=50, prec=0.00001):
     x = symbols("x")
-    iter_data = {}
+    iters_data = {}
     fn = parse_expr(equ)
-    num_of_iter = 0
+    num_of_iters = 0
     x_next = 0
 
     for i in range(iter):
@@ -18,23 +18,23 @@ def secant_eq(equ, x_prev, x_curr, iter=50, prec=0.00001):
                         digits_after_point)
 
         calc_prec = abs((x_next-x_curr)/x_next) * 100
-        iter_data[i] = [x_prev, x_curr, x_next, calc_prec]
+        iters_data[i] = [x_prev, x_curr, x_next, calc_prec]
         if calc_prec < prec:
             prec = calc_prec
-            num_of_iter = i + 1
+            num_of_iters = i + 1
             break
 
         x_prev = x_curr
         x_curr = x_next
 
-    num_of_iter = num_of_iter if num_of_iter != 0 else iter
+    num_of_iters = num_of_iters if num_of_iters != 0 else iter
 
-    return [iter_data,
+    return [iters_data,
             x_next,
             equ,
             # boolean refer to return cause
             # MAX_ITER / reach acceptable precision
-            iter != num_of_iter,
+            iter != num_of_iters,
             prec,
-            num_of_iter,
+            num_of_iters,
             'secant']
