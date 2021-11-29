@@ -21,9 +21,9 @@ def newton_eq(equ, x_curr, MAX_ITERS=50, prec=0.00001):
         calc_prec = abs((x_next-x_curr)/x_next) * 100
         iters_data[i] = [round(x_curr, round_digit), round(x_next, round_digit),calc_prec]
         if calc_prec < prec:
-            num_of_iter = i
+            num_of_iter = i + 1
             break
         x_curr = x_next
 
 
-    return [iters_data, x_next, equ, MAX_ITERS, prec, num_of_iter+1,'newton']
+    return [iters_data, x_next, equ, MAX_ITERS, prec, num_of_iter,'newton']
