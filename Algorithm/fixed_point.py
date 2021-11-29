@@ -1,4 +1,4 @@
-from sympy import parse_expr, symbols, diff
+from sympy import parse_expr, symbols
 
 def fixed_pt(equ, x_curr, MAX_ITERS=50, prec=0.00001):
     x = symbols("x")    
