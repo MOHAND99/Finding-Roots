@@ -13,7 +13,7 @@ def newton_eq(equ, x_curr, MAX_ITERS=50, prec=0.00001):
         return "Error First Derv. Is Zero"
         
     calc_prec = 0   
-    for i in range(iter):
+    for i in range(MAX_ITERS):
         f_x_curr = fn.subs(x, x_curr)
         f_x_derv = fn_derv.subs(x, x_curr)
         round_digit = 6
