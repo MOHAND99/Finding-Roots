@@ -32,7 +32,7 @@
    <property name="title">
     <string>Equation</string>
    </property>
-   <widget class="QRadioButton" name="radioButton">
+   <widget class="QRadioButton" name="gui">
     <property name="geometry">
      <rect>
       <x>10</x>
@@ -52,7 +52,7 @@
      <string>GUI</string>
     </property>
    </widget>
-   <widget class="QRadioButton" name="radioButton_2">
+   <widget class="QRadioButton" name="file">
     <property name="geometry">
      <rect>
       <x>10</x>
