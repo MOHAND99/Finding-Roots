@@ -1,4 +1,3 @@
-from re import S
 from PyQt5.uic import loadUi
 from PyQt5.QtWidgets import QMainWindow, QApplication
 import sys
@@ -10,13 +9,17 @@ class EntryWay(QMainWindow):
         super(EntryWay, self).__init__()
         loadUi('entry_way.ui', self)
         self.gui.toggled.connect(self.__get_equation)
+        self.show()
 
     def __get_equation(self):
+        self.close()
         if self.gui.isChecked():
             return Calculator()
         return # get from file gui object
+
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
     window = EntryWay()   # Create an instance of our class
     app.exec_()
+
