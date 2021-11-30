@@ -1,14 +1,16 @@
 from sympy import parse_expr, symbols
 
 
-def secant_eq(equ, x_prev, x_curr, iter=50, prec=0.00001):
-    x = symbols("x")
-    iters_data = {}
-    fn = parse_expr(equ)
-    num_of_iters = 0
-    x_next = 0
+def secant_eq(equ, x_prev, x_curr, MAX_ITERS=50, prec=0.00001):
 
-    for i in range(iter):
+    x = symbols("x")
+    iters_data = []
+    fn = parse_expr(equ)
+    num_of_iters = MAX_ITERS
+    x_next = 0
+    iters_data.append(['Xi-1', 'Xi', 'Xi+1' , 'Precession'])
+
+    for i in range(MAX_ITERS):
         f_x_curr = fn.subs(x, x_curr)
         f_x_prev = fn.subs(x, x_prev)
         digits_after_point = 6
@@ -20,7 +22,6 @@ def secant_eq(equ, x_prev, x_curr, iter=50, prec=0.00001):
         calc_prec = abs((x_next-x_curr)/x_next) * 100
         iters_data[i] = [x_prev, x_curr, x_next, calc_prec]
         if calc_prec < prec:
-            prec = calc_prec
             num_of_iters = i + 1
             break
 
@@ -34,7 +35,7 @@ def secant_eq(equ, x_prev, x_curr, iter=50, prec=0.00001):
             equ,
             # boolean refer to return cause
             # MAX_ITER / reach acceptable precision
-            iter != num_of_iters,
+            MAX_ITERS,
             prec,
             num_of_iters,
             'secant']
