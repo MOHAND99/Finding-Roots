@@ -15,20 +15,13 @@ def bisection(f_str, start, end, MAX_ITERS=50, prec=0.00001):
     iters_data = []
     iters_data.append(['Xl','Xr','Xr','Prec'])
     for i in range(MAX_ITERS):
-# <<<<<<< HEAD
         round_digit = 6
-# =======
-# >>>>>>> main
         mid = (start + end) / 2
         f_mid = f.subs(x, mid)
         if mid == 0:
             break
         calc_prec = abs((mid - old_mid) / mid ) * 100
-# <<<<<<< HEAD
         iters_data.append([round(start,round_digit) , round(end,round_digit), round(mid,round_digit), calc_prec])
-# =======
-#         iters_data.append([start, end, mid, calc_prec])
-# >>>>>>> main
 
         if calc_prec < prec or f_mid == 0:
             prec = calc_prec if f_mid != 0 else 0

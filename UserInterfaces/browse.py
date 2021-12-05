@@ -30,18 +30,13 @@ class Ui_Browse(object):
                                                         "*.txt*"),
                                                        ("all files",
                                                         "*.*")))
+
+                        
         self.address.setText(filename)
         Ui_Browse.filePath = filename 
         data.equation = open(filename, "r").read()
-# <<<<<<< HEAD
         print(data.equation)
 
-        
-# =======
-        
-
-#         self.Browse = Browse
-# >>>>>>> main
     
     def setupUi(self, Browse, data):
         self.Browse = Browse

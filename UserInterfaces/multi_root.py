@@ -1,16 +1,10 @@
-from re import S
 from PyQt5 import QtCore, QtGui, QtWidgets
-from output_window import Ui_output
 
 
 class Ui_Dialog(object):
     def okAction(self, data):
         # here if he choose known method we need to send data to out window
         if self.radioButton.isChecked():
-            # self.window = QtWidgets.QMainWindow()
-            # self.ui = Ui_output()
-            # self.ui.setupUi(self.window)
-            # self.window.show()
             data.m = int(self.roots_count.text())
             data.method = "m_multiple_roots"
 
