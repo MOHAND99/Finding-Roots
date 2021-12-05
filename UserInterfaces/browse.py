@@ -21,6 +21,7 @@ class Ui_Browse(object):
         self.ui = Ui_Form()
         self.ui.setupUi(self.window, data)
         self.window.show()
+        self.Browse.close()
 
     def openFileAction(self, data):
         filename = filedialog.askopenfilename(initialdir = "/",
@@ -32,9 +33,9 @@ class Ui_Browse(object):
         self.address.setText(filename)
         Ui_Browse.filePath = filename 
         data.equation = open(filename, "r").read()
-        
+        print(data.equation)
 
-        self.Browse = Browse
+        
     
     def setupUi(self, Browse, data):
         self.Browse = Browse
