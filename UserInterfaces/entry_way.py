@@ -1,6 +1,7 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
-from calculator import Ui_MainWindow
-from browse import Ui_Browse
+# from number_of_roots import *
+from UserInterfaces.calculator import Ui_MainWindow
+from UserInterfaces.browse import Ui_Browse
 
 
 

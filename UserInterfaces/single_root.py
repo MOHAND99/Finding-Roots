@@ -10,7 +10,7 @@
 
 from tkinter.constants import S
 from PyQt5 import QtCore, QtGui, QtWidgets
-from output_window import Ui_output
+from UserInterfaces.output_window import Ui_output
 
 class Ui_single(object):
 
@@ -126,11 +126,11 @@ class Ui_single(object):
         self.pushButton.setText(_translate("single", "Ok"))
 
 
-if __name__ == "__main__":
-    import sys
-    app = QtWidgets.QApplication(sys.argv)
-    single = QtWidgets.QWidget()
-    ui = Ui_single()
-    ui.setupUi(single)
-    single.show()
-    sys.exit(app.exec_())
+# if __name__ == "__main__":
+#     import sys
+#     app = QtWidgets.QApplication(sys.argv)
+#     single = QtWidgets.QWidget()
+#     ui = Ui_single()
+#     ui.setupUi(single)
+#     single.show()
+#     sys.exit(app.exec_())

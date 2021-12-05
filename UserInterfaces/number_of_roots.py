@@ -1,6 +1,6 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
-from multi_root import Ui_Dialog
-from single_root import Ui_single
+from UserInterfaces.multi_root import Ui_Dialog
+from UserInterfaces.single_root import Ui_single
 
 class Ui_Form(object):
     
@@ -118,11 +118,11 @@ class Ui_Form(object):
         self.label_3.setText(_translate("Form", "precision"))
 
 
-if __name__ == "__main__":
-    import sys
-    app = QtWidgets.QApplication(sys.argv)
-    Form = QtWidgets.QWidget()
-    ui = Ui_Form()
-    ui.setupUi(Form)
-    Form.show()
-    sys.exit(app.exec_())
+# if __name__ == "__main__":
+#     import sys
+#     app = QtWidgets.QApplication(sys.argv)
+#     Form = QtWidgets.QWidget()
+#     ui = Ui_Form()
+#     ui.setupUi(Form)
+#     Form.show()
+#     sys.exit(app.exec_())

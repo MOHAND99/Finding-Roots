@@ -11,7 +11,6 @@
 ##from typing_extensions import Self
 from PyQt5 import QtCore, QtGui, QtWidgets
 from tkinter import filedialog
-from number_of_roots import Ui_Form
 
 class Ui_Browse(object):
     filePath = ""  
@@ -64,11 +63,11 @@ class Ui_Browse(object):
         self.next.setText(_translate("Browse", "NEXT"))
 
 
-if __name__ == "__main__":
-    import sys
-    app = QtWidgets.QApplication(sys.argv)
-    Browse = QtWidgets.QWidget()
-    ui = Ui_Browse()
-    ui.setupUi(Browse)
-    Browse.show()
-    sys.exit(app.exec_())
+# if __name__ == "__main__":
+#     import sys
+#     app = QtWidgets.QApplication(sys.argv)
+#     Browse = QtWidgets.QWidget()
+#     ui = Ui_Browse()
+#     ui.setupUi(Browse)
+#     Browse.show()
+#     sys.exit(app.exec_())
