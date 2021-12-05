@@ -21,7 +21,11 @@ def secant_eq(equ, x_prev, x_curr, MAX_ITERS=50, prec=0.00001):
         iters_data.append([round(x_prev, digits_after_point),
                            round(x_curr, digits_after_point),
                            round(x_next, digits_after_point),
+# <<<<<<< HEAD
                            calc_prec])
+# =======
+#                            round(calc_prec,  digits_after_point)])
+# >>>>>>> main
         if calc_prec < prec:
             num_of_iters = i + 1
             break
