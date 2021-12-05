@@ -13,9 +13,11 @@ class Ui_Form(object):
 
     def okAction(self, data):
         self.window = QtWidgets.QMainWindow()
-        data.first_point = Decimal(self.first_root.text())
-        data.second_point = Decimal(self.sec_root.text())
-        data.precision = Decimal(self.precision.text())
+        data.first_point = Decimal(str(self.first_root.text()))
+        data.second_point = Decimal(
+            str(self.sec_root.text())
+            ) if self.sec_root.text() else data.second_point
+        data.precision = Decimal(str(self.precision.text()))
         data.max_iterations = int(self.max_iterations.text())
         if self.radioButton.isChecked():
             self.ui = Ui_Dialog()
@@ -145,8 +147,8 @@ class Ui_Form(object):
         self.radioButton_2.setText(_translate("Form", "single"))
         self.label_2.setText(_translate("Form", "max iterations"))
         self.label_3.setText(_translate("Form", "precision"))
-        self.first_root_label.setText(_translate("Form", "First Root"))
-        self.sec_root_label.setText(_translate("Form", "Second Root"))
+        self.first_root_label.setText(_translate("Form", "First Point"))
+        self.sec_root_label.setText(_translate("Form", "Second Point"))
 
 
 if __name__ == "__main__":

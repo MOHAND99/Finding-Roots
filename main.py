@@ -8,7 +8,8 @@ from PyQt5 import QtWidgets
 from UserInterfaces.entry_way import Ui_Form
 from dataclasses import dataclass
 from decimal import Decimal
-from pprint import pprint
+# from pprint import pprint
+
 
 @dataclass
 class Data:
@@ -18,6 +19,7 @@ class Data:
     method: str = ""
     max_iterations: int = 50
     precision: Decimal = Decimal('0.00001')
+    m: int = 0
 
 
 data = Data()
@@ -26,5 +28,6 @@ Form = QtWidgets.QWidget()
 ui = Ui_Form()
 ui.setupUi(Form, data)
 Form.show()
-pprint(data)
-sys.exit(app.exec_())
+app.exec_()
+# sys.exit()
+print(data.equation)
