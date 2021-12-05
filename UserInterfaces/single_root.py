@@ -20,31 +20,33 @@ class Ui_single(object):
     def okAction(self, data):
         # here if he choose bracket method we need to send data to out window
         data.method = self.comboBox.currentText()
-        if self.radioButton.isChecked():
-            self.window = QtWidgets.QMainWindow()
-            self.ui = Ui_output()
-            self.ui.setupUi(self.window)
-            self.window.show()
+        # if self.radioButton.isChecked():
+            # self.window = QtWidgets.QMainWindow()
+            # self.ui = Ui_output()
+            # self.ui.setupUi(self.window)
+            # self.window.show()
+            # self.closeEvent()
         # here if he choose open method we need to send data to out window
-        elif self.radioButton_2.isChecked():
-            self.window = QtWidgets.QMainWindow()
-            self.ui = Ui_output()
-            self.ui.setupUi(self.window)
-            self.window.show()
-        else:
-            # here we need to show message of error
-            print("Error must choose way to choose algorithms")
+        # elif self.radioButton_2.isChecked():
+            # self.window = QtWidgets.QMainWindow()
+            # self.ui = Ui_output()
+            # self.ui.setupUi(self.window)
+            # self.window.show()
+            # self.closeEvent()
+        # else:
+        #     # here we need to show message of error
+        #     print("Error must choose way to choose algorithms")
 
     # action of close button to close the current window
     def cancelAction(self):
-        self.window.closeEvent
+        self.window.closeEvent()
 
     def setupUi(self, single, data):
         single.setObjectName("single")
         single.resize(296, 300)
         single.setMinimumSize(QtCore.QSize(296, 300))
         single.setMaximumSize(QtCore.QSize(296, 300))
-        
+
         self.pushButton_2 = QtWidgets.QPushButton(single)
         self.pushButton_2.setGeometry(QtCore.QRect(18, 230, 121, 41))
         font = QtGui.QFont()
