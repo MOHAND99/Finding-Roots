@@ -24,7 +24,6 @@ def multiple_root_mod_two(equ, x_curr, MAX_ITERS=50, prec=0.00001):
         f_x_derv = fn_derv.subs(x, x_curr)
         f_x_sec_derv = fn_second_derv.subs(x, x_curr)
         round_digit = 6
-       
         x_next = x_curr - ((f_x_curr * f_x_derv) / ((f_x_derv**2)-(f_x_curr * f_x_sec_derv)))
         if x_next == 0:
             break

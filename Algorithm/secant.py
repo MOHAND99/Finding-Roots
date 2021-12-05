@@ -22,6 +22,7 @@ def secant_eq(equ, x_prev, x_curr, MAX_ITERS=50, prec=0.00001):
                            round(x_curr, digits_after_point),
                            round(x_next, digits_after_point),
                            calc_prec])
+
         if calc_prec < prec:
             num_of_iters = i + 1
             break
