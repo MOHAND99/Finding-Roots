@@ -25,18 +25,19 @@ class Ui_Form(object):
 
     def setupUi(self, Form, data):
         Form.setObjectName("Form")
-        Form.resize(314, 332)
+
+        Form.resize(314, 430)
         sizePolicy = QtWidgets.QSizePolicy(
             QtWidgets.QSizePolicy.Minimum, QtWidgets.QSizePolicy.Minimum)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(Form.sizePolicy().hasHeightForWidth())
         Form.setSizePolicy(sizePolicy)
-        Form.setMinimumSize(QtCore.QSize(314, 332))
-        Form.setMaximumSize(QtCore.QSize(314, 332))
+        Form.setMinimumSize(QtCore.QSize(314, 430))
+        Form.setMaximumSize(QtCore.QSize(314, 430))
 
         self.pushButton_2 = QtWidgets.QPushButton(Form)
-        self.pushButton_2.setGeometry(QtCore.QRect(30, 270, 121, 41))
+        self.pushButton_2.setGeometry(QtCore.QRect(30, 350, 121, 41))
         font = QtGui.QFont()
         font.setPointSize(12)
         self.pushButton_2.setFont(font)
@@ -44,7 +45,7 @@ class Ui_Form(object):
         self.pushButton_2.clicked.connect(self.cancelAction)
 
         self.pushButton = QtWidgets.QPushButton(Form)
-        self.pushButton.setGeometry(QtCore.QRect(160, 270, 121, 41))
+        self.pushButton.setGeometry(QtCore.QRect(160, 350, 121, 41))
         font = QtGui.QFont()
         font.setPointSize(12)
         self.pushButton.setFont(font)
@@ -90,14 +91,39 @@ class Ui_Form(object):
         self.lineEdit.setGeometry(QtCore.QRect(170, 180, 113, 31))
         self.lineEdit.setObjectName("lineEdit")
         self.lineEdit.setText("50")
+
+        self.first_root = QtWidgets.QLineEdit(Form)
+        self.first_root.setGeometry(QtCore.QRect(170, 260, 113, 30))
+        self.first_root.setObjectName("first_root")
+
+    
+
+        self.sec_root = QtWidgets.QLineEdit(Form)
+        self.sec_root.setGeometry(QtCore.QRect(170, 300, 113, 30))
+        self.sec_root.setObjectName("sec_root")
+        self.sec_root.setText("Enter If Exist")
         
         self.label_3 = QtWidgets.QLabel(Form)
-        self.label_3.setGeometry(QtCore.QRect(70, 210, 91, 31))
+        self.label_3.setGeometry(QtCore.QRect(30, 210, 91, 31))
         font = QtGui.QFont()
         font.setPointSize(12)
         self.label_3.setFont(font)
         self.label_3.setObjectName("label_3")
         
+        self.first_root_label = QtWidgets.QLabel(Form)
+        self.first_root_label.setGeometry(QtCore.QRect(30, 260, 81, 20))
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.first_root_label.setFont(font)
+        self.first_root_label.setObjectName("first_root_label")
+
+        self.sec_root_label = QtWidgets.QLabel(Form)
+        self.sec_root_label.setGeometry(QtCore.QRect(30, 300, 150, 20))
+        font = QtGui.QFont()
+        font.setPointSize(12)
+        self.sec_root_label.setFont(font)
+        self.sec_root_label.setObjectName("sec_root_label")
+
         self.lineEdit_2 = QtWidgets.QLineEdit(Form)
         self.lineEdit_2.setGeometry(QtCore.QRect(170, 220, 113, 31))
         self.lineEdit_2.setObjectName("lineEdit_2")
@@ -116,6 +142,8 @@ class Ui_Form(object):
         self.radioButton_2.setText(_translate("Form", "single"))
         self.label_2.setText(_translate("Form", "max iterations"))
         self.label_3.setText(_translate("Form", "precision"))
+        self.first_root_label.setText(_translate("Form", "First Root"))
+        self.sec_root_label.setText(_translate("Form", "Second Root"))
 
 
 if __name__ == "__main__":

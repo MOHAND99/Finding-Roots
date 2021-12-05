@@ -1,6 +1,9 @@
 import sys
 import os.path
-sys.path.append(os.path.dirname(__file__) + r'\UserInterfaces')
+if '/' in os.path.dirname(__file__):
+    sys.path.append(os.path.dirname(__file__) + r'/UserInterfaces')
+else:
+    sys.path.append(os.path.dirname(__file__) + r'\UserInterfaces')
 from PyQt5 import QtWidgets
 from UserInterfaces.entry_way import Ui_Form
 from dataclasses import dataclass

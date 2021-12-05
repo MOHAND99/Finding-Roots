@@ -40,11 +40,12 @@ class Ui_output(object):
         self.precision_value = QtWidgets.QLabel(output)
         self.precision_value.setGeometry(QtCore.QRect(270, 120, 55, 16))
         self.precision_value.setObjectName("precision_value")
-        self.tabel_iteration = QtWidgets.QTableWidget(output)
-        self.tabel_iteration.setGeometry(QtCore.QRect(20, 170, 631, 371))
-        self.tabel_iteration.setObjectName("tabel_iteration")
-        self.tabel_iteration.setColumnCount(0)
-        self.tabel_iteration.setRowCount(0)
+
+        self.table= QtWidgets.QTableWidget(output)
+        self.table.setGeometry(QtCore.QRect(20, 170, 631, 371))
+        self.table.setObjectName("table_iteration")
+        self.table.setColumnCount(0)
+        self.table.setRowCount(0)
 
         self.retranslateUi(output)
         QtCore.QMetaObject.connectSlotsByName(output)
@@ -61,6 +62,31 @@ class Ui_output(object):
         self.precision_label.setText(_translate("output", "Precision"))
         self.precision_value.setText(_translate("output", "0.00005"))
 
+    def set_table_vals(self, data):
+        col_count = len(data[0])
+        row_count = len(data) - 1
+        
+        self.table.setRowCount(row_count)
+        self.table.setColumnCount(col_count)
+        self.table.setHorizontalHeaderLabels(data[0]) 
+     
+        for i in range(row_count):
+            col_ind = 0
+            for j in range(col_count):    
+                self.table.setItem(i,col_ind+j,QtWidgets.QTableWidgetItem(str(data[i+1][j])))
+                self.table.horizontalHeader().setSectionResizeMode(j, QtWidgets.QHeaderView.Stretch)
+       
+    def set_time(self, time):
+        self.time_value.setText(str(time))
+
+    def set_iteration_value(self, v):      
+        self.iteration_value.setText(str(v))
+
+    def set_root_value(self, v):
+        self.root_val.setText(str(v))
+
+    def set_prec_val(self, v):  
+        self.precision.setText(str(v))
 
 if __name__ == "__main__":
     import sys
@@ -68,5 +94,8 @@ if __name__ == "__main__":
     output = QtWidgets.QDialog()
     ui = Ui_output()
     ui.setupUi(output)
+    ui.set_time(300)
+    l = [['Xi','Xi+1','Prec'],[2,3,444444444444],[2,3,4],[2,3,4],[2,3,4]]
+    ui.set_table_vals(l)
     output.show()
     sys.exit(app.exec_())
