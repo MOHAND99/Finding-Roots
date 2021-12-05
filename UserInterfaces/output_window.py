@@ -32,7 +32,7 @@ class Ui_output(object):
         self.root_label.setGeometry(QtCore.QRect(20, 90, 141, 21))
         self.root_label.setObjectName("root_label")
         self.root_value = QtWidgets.QLabel(output)
-        self.root_value.setGeometry(QtCore.QRect(270, 90, 55, 16))
+        self.root_value.setGeometry(QtCore.QRect(270, 90, 200, 16))
         self.root_value.setObjectName("root_value")
         self.precision_label = QtWidgets.QLabel(output)
         self.precision_label.setGeometry(QtCore.QRect(20, 120, 141, 21))
@@ -83,10 +83,10 @@ class Ui_output(object):
         self.iteration_value.setText(str(v))
 
     def set_root_value(self, v):
-        self.root_val.setText(str(v))
+        self.root_value.setText(str(v))
 
     def set_prec_val(self, v):  
-        self.precision.setText(str(v))
+        self.precision_value.setText(str(v))
 
 if __name__ == "__main__":
     import sys

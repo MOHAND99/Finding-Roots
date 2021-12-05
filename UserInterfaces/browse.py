@@ -15,13 +15,14 @@ from number_of_roots import Ui_Form
 
 class Ui_Browse(object):
     filePath = ""  
-    def nextAction(self):
+    def nextAction(self, data):
+        
         self.window = QtWidgets.QMainWindow()
         self.ui = Ui_Form()
-        self.ui.setupUi(self.window)
+        self.ui.setupUi(self.window, data)
         self.window.show()
 
-    def openFileAction(self):
+    def openFileAction(self, data):
         filename = filedialog.askopenfilename(initialdir = "/",
                                           title = "Select a File",
                                           filetypes = (("Text files",
@@ -29,9 +30,14 @@ class Ui_Browse(object):
                                                        ("all files",
                                                         "*.*")))
         self.address.setText(filename)
-        Ui_Browse.filePath = filename  ##check from that it will return filepath to main
+        Ui_Browse.filePath = filename 
+        data.equation = open(filename, "r").read()
+        
+
+        self.Browse = Browse
     
-    def setupUi(self, Browse):
+    def setupUi(self, Browse, data):
+        self.Browse = Browse
         Browse.setObjectName("Browse")
         Browse.resize(500, 253)
         Browse.setMaximumSize(QtCore.QSize(500, 253))
@@ -42,7 +48,7 @@ class Ui_Browse(object):
         self.browser = QtWidgets.QPushButton(Browse)
         self.browser.setGeometry(QtCore.QRect(320, 110, 111, 28))
         self.browser.setObjectName("browser")
-        self.browser.clicked.connect(self.openFileAction)
+        self.browser.clicked.connect(lambda: self.openFileAction(data))
         
         self.fileAdd = QtWidgets.QLabel(Browse)
         self.fileAdd.setGeometry(QtCore.QRect(20, 60, 121, 21))
@@ -51,7 +57,7 @@ class Ui_Browse(object):
         self.next = QtWidgets.QPushButton(Browse)
         self.next.setGeometry(QtCore.QRect(380, 200, 93, 28))
         self.next.setObjectName("next")
-        self.next.clicked.connect(self.nextAction)
+        self.next.clicked.connect(lambda: self.nextAction(data))
 
         self.retranslateUi(Browse)
         QtCore.QMetaObject.connectSlotsByName(Browse)

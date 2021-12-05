@@ -30,7 +30,10 @@ class Ui_Form(object):
         else:
             print("Must choose method to solve")
 
+        self.Form.close()
+
     def setupUi(self, Form, data):
+        self.Form = Form
         Form.setObjectName("Form")
 
         Form.resize(314, 430)

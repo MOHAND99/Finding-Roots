@@ -14,21 +14,20 @@ def secant_eq(equ, x_prev, x_curr, MAX_ITERS=50, prec=0.00001):
         f_x_curr = fn.subs(x, x_curr)
         f_x_prev = fn.subs(x, x_prev)
         digits_after_point = 6
-        x_next = round(
-                        x_curr -
-                        ((f_x_curr * (x_prev - x_curr))/(f_x_prev - f_x_curr)),
-                        digits_after_point)
-
+        x_next = x_curr -((f_x_curr * (x_prev - x_curr))/(f_x_prev - f_x_curr))
+        if x_next == 0:
+            break
         calc_prec = abs((x_next-x_curr)/x_next) * 100
-        iters_data[i] = [x_prev, x_curr, x_next, calc_prec]
+        iters_data.append([round(x_prev, digits_after_point),
+                           round(x_curr, digits_after_point),
+                           round(x_next, digits_after_point),
+                           round(calc_prec,  digits_after_point)])
         if calc_prec < prec:
             num_of_iters = i + 1
             break
 
         x_prev = x_curr
         x_curr = x_next
-
-    num_of_iters = num_of_iters if num_of_iters != 0 else iter
 
     return [iters_data,
             x_next,
