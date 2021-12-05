@@ -1,6 +1,7 @@
 from PyQt5 import QtCore, QtGui, QtWidgets
 from multi_root import Ui_Dialog
 from single_root import Ui_single
+from decimal import Decimal
 
 
 class Ui_Form(object):
@@ -12,6 +13,10 @@ class Ui_Form(object):
 
     def okAction(self, data):
         self.window = QtWidgets.QMainWindow()
+        data.first_point = Decimal(self.first_root.text())
+        data.second_point = Decimal(self.sec_root.text())
+        data.precision = Decimal(self.precision.text())
+        data.max_iterations = int(self.max_iterations.text())
         if self.radioButton.isChecked():
             self.ui = Ui_Dialog()
             self.ui.setupUi(self.window, data)
@@ -79,37 +84,35 @@ class Ui_Form(object):
         font.setWeight(50)
         self.radioButton_2.setFont(font)
         self.radioButton_2.setObjectName("radioButton_2")
-        
+
         self.label_2 = QtWidgets.QLabel(Form)
         self.label_2.setGeometry(QtCore.QRect(30, 180, 131, 21))
         font = QtGui.QFont()
         font.setPointSize(12)
         self.label_2.setFont(font)
         self.label_2.setObjectName("label_2")
-        
-        self.lineEdit = QtWidgets.QLineEdit(Form)
-        self.lineEdit.setGeometry(QtCore.QRect(170, 180, 113, 31))
-        self.lineEdit.setObjectName("lineEdit")
-        self.lineEdit.setText("50")
+
+        self.max_iterations = QtWidgets.QLineEdit(Form)
+        self.max_iterations.setGeometry(QtCore.QRect(170, 180, 113, 31))
+        self.max_iterations.setObjectName("max_iterations")
+        self.max_iterations.setText(str(data.max_iterations))
 
         self.first_root = QtWidgets.QLineEdit(Form)
         self.first_root.setGeometry(QtCore.QRect(170, 260, 113, 30))
         self.first_root.setObjectName("first_root")
 
-    
-
         self.sec_root = QtWidgets.QLineEdit(Form)
         self.sec_root.setGeometry(QtCore.QRect(170, 300, 113, 30))
         self.sec_root.setObjectName("sec_root")
-        self.sec_root.setText("Enter If Exist")
-        
+        self.sec_root.setPlaceholderText("Enter If Exist")
+
         self.label_3 = QtWidgets.QLabel(Form)
         self.label_3.setGeometry(QtCore.QRect(30, 210, 91, 31))
         font = QtGui.QFont()
         font.setPointSize(12)
         self.label_3.setFont(font)
         self.label_3.setObjectName("label_3")
-        
+
         self.first_root_label = QtWidgets.QLabel(Form)
         self.first_root_label.setGeometry(QtCore.QRect(30, 260, 81, 20))
         font = QtGui.QFont()
@@ -124,10 +127,10 @@ class Ui_Form(object):
         self.sec_root_label.setFont(font)
         self.sec_root_label.setObjectName("sec_root_label")
 
-        self.lineEdit_2 = QtWidgets.QLineEdit(Form)
-        self.lineEdit_2.setGeometry(QtCore.QRect(170, 220, 113, 31))
-        self.lineEdit_2.setObjectName("lineEdit_2")
-        self.lineEdit_2.setText("0.00001")
+        self.precision = QtWidgets.QLineEdit(Form)
+        self.precision.setGeometry(QtCore.QRect(170, 220, 113, 31))
+        self.precision.setObjectName("precision")
+        self.precision.setText(str(data.precision))
 
         self.retranslateUi(Form)
         QtCore.QMetaObject.connectSlotsByName(Form)
