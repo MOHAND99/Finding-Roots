@@ -14,14 +14,18 @@ def falsePosition(equ,start,end,Max_ITR= 50,prec = 0.00001):
 
     c = 0
     old_c = 0
-
+    iterationData.append(['Xl','Xu','Xr','Prec'])
     for i in range(Max_ITR):
+        round_digit = 6
+        c = (start * func.subs(x,end) - end * func.subs(x,start)) / (func.subs(x,end) - func.subs(x,start))
 
-        c = (start * func.subs(x,end) - end * func.subs(x,start)) / func.subs(x,end) - func.subs(x,start)
-        calculatedPrec = abs((c-old_c)/c) * 100
-        iterationData[i] = [start ,func.subs(x,start) ,end ,func.subs(x,end) ,c ,func.subs(x,c)]
+        if c == 0:
+            break
 
-        if func.subs(x,c) == 0 or calculatedPrec < prec:
+        calculatedPrec = abs((c-old_c) / c) * 100
+        iterationData.append([round(start,round_digit) ,round(end,round_digit) , round(c,round_digit),calculatedPrec])
+
+        if func.subs(x, c) == 0 or calculatedPrec < prec:
            
             if func.subs(x,c) != 0:
                 prec = calculatedPrec
@@ -32,11 +36,16 @@ def falsePosition(equ,start,end,Max_ITR= 50,prec = 0.00001):
             numberOfIterations = i + 1
             break
         
-        elif func.subs(x,c) * func.subs(x,start) < 0:
-                end = c
+        if func.subs(x, c)  < 0:
+            end = c
         
         else:
             start = c
 
-        return [iterationData,equ,Max_ITR,numberOfIterations,prec,"FALSE POSITION"]
+        old_c = c
+    return [iterationData, c, equ,Max_ITR, numberOfIterations,prec,"FALSE POSITION"]
         
+# a =  falsePosition("x ** 3  - 3 * x + 1", 0, 1, 50, 0.000001)
+# for i in a[0]:
+#     print(i)
+# print(a[1])
