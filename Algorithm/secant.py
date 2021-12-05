@@ -1,5 +1,5 @@
 from sympy import parse_expr, symbols
-
+import matplotlib.pyplot as plt
 
 def secant_eq(equ, x_prev, x_curr, MAX_ITERS=50, prec=0.00001):
 
@@ -11,8 +11,11 @@ def secant_eq(equ, x_prev, x_curr, MAX_ITERS=50, prec=0.00001):
     iters_data.append(['Xi-1', 'Xi', 'Xi+1' , 'Precession'])
 
     for i in range(MAX_ITERS):
+
         f_x_curr = fn.subs(x, x_curr)
         f_x_prev = fn.subs(x, x_prev)
+        a=[[1,2],[3,3],[4,4],[5,2]]
+        plt.plot(*zip(*a), marker='o', color='r', ls='')
         digits_after_point = 6
         x_next = round(
                         x_curr -
