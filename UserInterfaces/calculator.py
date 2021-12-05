@@ -19,8 +19,10 @@ class Ui_MainWindow(object):
         self.ui.setupUi(self.window, data)
         self.window.show()
         Ui_MainWindow.equation = self.outputlabel.text()
+        self.MainWindow.close()
 
     def setupUi(self, MainWindow, data):
+        self.MainWindow = MainWindow
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(391, 612)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
@@ -67,7 +69,7 @@ class Ui_MainWindow(object):
         font.setPointSize(18)
         self.X_.setFont(font)
         self.X_.setObjectName("X_")
-        self.X_.clicked.connect(lambda: self.__add_to_output("X"))
+        self.X_.clicked.connect(lambda: self.__add_to_output("x"))
 
         self.backspace = QtWidgets.QPushButton(self.centralwidget)
         self.backspace.setGeometry(QtCore.QRect(290, 250, 71, 41))
@@ -225,7 +227,7 @@ class Ui_MainWindow(object):
         self.division.clicked.connect(lambda: self.__add_to_output("/"))
         self.plus.clicked.connect(lambda: self.__add_to_output("+"))
         self.minus.clicked.connect(lambda: self.__add_to_output("-"))
-        self.power.clicked.connect(lambda: self.__add_to_output("^"))
+        self.power.clicked.connect(lambda: self.__add_to_output("**"))
         self.l_bracket.clicked.connect(lambda: self.__add_to_output("("))
         self.r_bracket.clicked.connect(lambda: self.__add_to_output(")"))
 
@@ -258,7 +260,7 @@ class Ui_MainWindow(object):
         self.cosine.setText(_translate("MainWindow", "cos("))
         self.sine.setText(_translate("MainWindow", "sin("))
         self.exp.setText(_translate("MainWindow", "exp("))
-        self.X_.setText(_translate("MainWindow", "X"))
+        self.X_.setText(_translate("MainWindow", "x"))
         self.backspace.setText(_translate("MainWindow", "Del"))
         self.l_bracket.setText(_translate("MainWindow", "("))
         self.r_bracket.setText(_translate("MainWindow", ")"))
@@ -278,7 +280,7 @@ class Ui_MainWindow(object):
         self.six.setText(_translate("MainWindow", "6"))
         self.four.setText(_translate("MainWindow", "4"))
         self.pushButton_2.setText(_translate("MainWindow", "Find Roots"))
-        self.power.setText(_translate("MainWindow", "^"))
+        self.power.setText(_translate("MainWindow", "**"))
         self.space.setText(_translate("MainWindow", "space"))
 
 

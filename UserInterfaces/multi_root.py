@@ -1,3 +1,4 @@
+from re import S
 from PyQt5 import QtCore, QtGui, QtWidgets
 from output_window import Ui_output
 
@@ -19,12 +20,14 @@ class Ui_Dialog(object):
         else:
             # here we need to show message of error
             print("Error must choose way to choose algorithms")
+        self.Dialog.close()
 
     # action of close button to close the current window
     def cancelAction(self):
         self.window.closeEvent
 
     def setupUi(self, Dialog, data):
+        self.Dialog = Dialog
         Dialog.setObjectName("Dialog")
         Dialog.resize(308, 300)
         sizePolicy = QtWidgets.QSizePolicy(

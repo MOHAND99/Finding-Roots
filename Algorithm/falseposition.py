@@ -2,8 +2,8 @@ from sympy import parse_expr , symbols
 
 def falsePosition(equ,start,end,Max_ITR= 50,prec = 0.00001):
     
+    x = symbols("x")
     func = parse_expr(equ)
-    x = symbols('x')
    
     numberOfIterations = Max_ITR
     iterationData = []

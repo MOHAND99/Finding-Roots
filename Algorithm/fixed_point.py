@@ -10,9 +10,11 @@ def fixed_pt(equ, x_curr, MAX_ITERS=50, prec=0.00001):
     calc_prec = 0   
     
     for i in range(MAX_ITERS):
-        f_x_curr = fn.subs(x, x_curr)
+        x_next = fn.subs(x, x_curr)
         round_digit = 6
-        x_next = f_x_curr
+        if x_next == 0:
+            break
+        # x_next = f_x_curr
         calc_prec = abs((x_next-x_curr)/x_next) * 100
         iters_data.append([round(x_curr, round_digit), round(x_next, round_digit), calc_prec])
         if calc_prec < prec:

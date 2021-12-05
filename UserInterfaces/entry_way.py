@@ -7,20 +7,23 @@ class Ui_Form(object):
         self.window.closeEvent()
 
     def okButton(self, data):
-            if self.gui.isChecked():
-                self.window = QtWidgets.QMainWindow()
-                self.ui = Ui_MainWindow()
-                self.ui.setupUi(self.window, data)
-                self.window.show()
-            elif self.file.isChecked():
-                self.window = QtWidgets.QMainWindow()
-                self.ui = Ui_Browse()
-                self.ui.setupUi(self.window, data)
-                self.window.show()
-            else:
-                print("error message")
+        if self.gui.isChecked():
+            self.window = QtWidgets.QMainWindow()
+            self.ui = Ui_MainWindow()
+            self.ui.setupUi(self.window, data)
+            self.window.show()
+        elif self.file.isChecked():
+            self.window = QtWidgets.QMainWindow()
+            self.ui = Ui_Browse()
+            self.ui.setupUi(self.window, data)
+            self.window.show()
+        else:
+            print("error message")
+        self.Form.close()
+    
 
     def setupUi(self, Form, data):
+        self.Form = Form
         Form.setObjectName("Form")
         Form.resize(293, 252)
         self.groupBox = QtWidgets.QGroupBox(Form)
@@ -79,11 +82,11 @@ class Ui_Form(object):
         self.pushButton.setText(_translate("Form", "Ok"))
 
 
-if __name__ == "__main__":
-    import sys
-    app = QtWidgets.QApplication(sys.argv)
-    Form = QtWidgets.QWidget()
-    ui = Ui_Form()
-    ui.setupUi(Form)
-    Form.show()
-    sys.exit(app.exec_())
+# if __name__ == "__main__":
+#     import sys
+#     app = QtWidgets.QApplication(sys.argv)
+#     Form = QtWidgets.QWidget()
+#     ui = Ui_Form()
+#     ui.setupUi(Form)
+#     Form.show()
+#     sys.exit(app.exec_())

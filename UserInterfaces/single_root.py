@@ -7,7 +7,7 @@ class Ui_single(object):
         if self.radioButton_2.isChecked():
             self.comboBox.clear()
             self.comboBox.addItems(
-                ["Secant", "Newton Raphson", "Fixed Points"])
+                ["Secant", "Newton Raphson", "Fixed Point"])
 
     def bracket_method_type(self):
         if self.radioButton.isChecked():
@@ -20,6 +20,7 @@ class Ui_single(object):
     def okAction(self, data):
         # here if he choose bracket method we need to send data to out window
         data.method = self.comboBox.currentText()
+        self.single.close()
         # if self.radioButton.isChecked():
             # self.window = QtWidgets.QMainWindow()
             # self.ui = Ui_output()
@@ -42,6 +43,7 @@ class Ui_single(object):
         self.window.closeEvent()
 
     def setupUi(self, single, data):
+        self.single = single
         single.setObjectName("single")
         single.resize(296, 300)
         single.setMinimumSize(QtCore.QSize(296, 300))
