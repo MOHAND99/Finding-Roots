@@ -17,15 +17,12 @@ def secant_eq(equ, x_prev, x_curr, MAX_ITERS=50, prec=0.00001):
         x_next = x_curr -((f_x_curr * (x_prev - x_curr))/(f_x_prev - f_x_curr))
         if x_next == 0:
             break
-        calc_prec = abs((x_next-x_curr)/x_next) * 100
+        calc_prec = abs((x_next-x_curr)/x_next) 
         iters_data.append([round(x_prev, digits_after_point),
                            round(x_curr, digits_after_point),
                            round(x_next, digits_after_point),
-# <<<<<<< HEAD
                            calc_prec])
-# =======
-#                            round(calc_prec,  digits_after_point)])
-# >>>>>>> main
+
         if calc_prec < prec:
             num_of_iters = i + 1
             break
