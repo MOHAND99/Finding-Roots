@@ -16,7 +16,6 @@ from Algorithm.bisection import bisection
 from Algorithm.falseposition import falsePosition
 from Algorithm.m_r_m1 import multiple_root_mod_one
 from Algorithm.m_r_m2 import multiple_root_mod_two
-# from pprint import pprint
 
 
 @dataclass

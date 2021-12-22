@@ -27,13 +27,13 @@ class Ui_MainWindow(object):
         MainWindow.resize(391, 612)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
-        self.outputlabel = QtWidgets.QLabel(self.centralwidget)
+        self.outputlabel = QtWidgets.QLineEdit(self.centralwidget)
         self.outputlabel.setGeometry(QtCore.QRect(10, 20, 371, 81))
         font = QtGui.QFont()
         font.setPointSize(36)
         self.outputlabel.setFont(font)
-        self.outputlabel.setFrameShape(QtWidgets.QFrame.Box)
-        self.outputlabel.setLineWidth(2)
+        # self.outputlabel.setFrameShape(QtWidgets.QFrame.Box)
+        # self.outputlabel.setLineWidth(2)
         self.outputlabel.setText("")
         self.outputlabel.setAlignment(QtCore.Qt.AlignRight
                                       | QtCore.Qt.AlignTrailing
