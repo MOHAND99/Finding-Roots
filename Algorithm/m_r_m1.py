@@ -18,7 +18,7 @@ def multiple_root_mod_one(equ, x_curr, m, MAX_ITERS=50, prec=0.00001):
         f_x_derv = fn_derv.subs(x, x_curr)
         round_digit = 6
         x_next = x_curr - (m * (f_x_curr / f_x_derv))
-        calc_prec = abs((x_next-x_curr)/x_next) * 100
+        calc_prec = abs((x_next-x_curr)/x_next) 
         iters_data.append([round(x_curr, round_digit), round(x_next, round_digit),calc_prec])
         if calc_prec < prec:
             num_of_iter = i + 1
