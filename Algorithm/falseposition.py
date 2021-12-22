@@ -22,7 +22,7 @@ def falsePosition(equ,start,end,Max_ITR= 50,prec = 0.00001):
         if c == 0:
             break
 
-        calculatedPrec = abs((c-old_c) / c)
+        calculatedPrec = abs((c-old_c) / c) 
         iterationData.append([round(start,round_digit) ,round(end,round_digit) , round(c,round_digit),calculatedPrec])
 
         if func.subs(x, c) == 0 or calculatedPrec < prec:
