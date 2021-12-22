@@ -2,11 +2,6 @@ from PyQt5 import QtCore, QtWidgets
 
 
 class Ui_output(object):
-    def restart(self):
-        self.window = QtWidgets.QMainWindow()
-        self.ui = Ui_Form()
-        self.ui.setupUi(self.window)
-        self.window.show()
 
     def setupUi(self, output):
         output.setObjectName("output")
@@ -43,11 +38,11 @@ class Ui_output(object):
         self.table.setColumnCount(0)
         self.table.setRowCount(0)
 
-        self.restart = QtWidgets.QPushButton(output)
-        self.restart.setText("restart")
-        self.restart.setGeometry(QtCore.QRect(510, 650, 141, 31))
-        self.restart.setObjectName("restart")
-        self.restart.clicked.connect(self.restart)
+        # self.restart = QtWidgets.QPushButton(output)
+        # self.restart.setText("restart")
+        # self.restart.setGeometry(QtCore.QRect(510, 650, 141, 31))
+        # self.restart.setObjectName("restart")
+        # self.restart.clicked.connect(self.restart)
 
         self.retranslateUi(output)
         QtCore.QMetaObject.connectSlotsByName(output)
