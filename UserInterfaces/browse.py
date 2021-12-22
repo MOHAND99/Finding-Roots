@@ -35,20 +35,7 @@ class Ui_Browse(object):
         self.address.setText(filename)
         Ui_Browse.filePath = filename 
         data.equation = open(filename, "r").read()
-<<<<<<< HEAD
         print(data.equation)
-
-=======
-# <<<<<<< HEAD
-        print(data.equation)
-
-        
-# =======
-        
-
-#         self.Browse = Browse
-# >>>>>>> main
->>>>>>> main
     
     def setupUi(self, Browse, data):
         self.Browse = Browse
