@@ -15,7 +15,7 @@ def fixed_pt(equ, x_curr, MAX_ITERS=50, prec=0.00001):
         if x_next == 0:
             break
         # x_next = f_x_curr
-        calc_prec = abs((x_next-x_curr)/x_next) * 100
+        calc_prec = abs((x_next-x_curr)/x_next) 
         iters_data.append([round(x_curr, round_digit), round(x_next, round_digit), calc_prec])
         if calc_prec < prec:
             num_of_iter = i + 1
