@@ -27,7 +27,7 @@ def multiple_root_mod_two(equ, x_curr, MAX_ITERS=50, prec=0.00001):
         x_next = x_curr - ((f_x_curr * f_x_derv) / ((f_x_derv**2)-(f_x_curr * f_x_sec_derv)))
         if x_next == 0:
             break
-        calc_prec = abs((x_next-x_curr)/x_next) * 100
+        calc_prec = abs((x_next-x_curr)/x_next) 
         iters_data.append([round(x_curr, round_digit), round(x_next, round_digit),calc_prec])
         if calc_prec < prec:
             num_of_iter = i + 1
